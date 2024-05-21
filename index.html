@@ -11,7 +11,7 @@
             margin: 0;
             display: flex;
             height: 100vh;
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             position: relative;
         }
 
@@ -27,25 +27,39 @@
 
         .overlay h1 {
             margin: 0;
-            font-size: 4em;
+            font-size: 3.5em;
             color: #333;
             text-shadow: 1px 1px 5px #ffd1dc;
-            /* pastel pink outline */
             font-family: 'Playfair Display', serif;
             letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+            display: inline-block;
+        }
+
+        .overlay h1::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120%;
+            height: 20px;
+            background: white;
+            transform: translate(-50%, -50%);
+            z-index: -1;
         }
 
         .overlay p {
             margin: 5px 0 0;
-            font-size: 1.5em;
+            font-size: 1.2em;
             color: #666666;
             font-style: italic;
         }
 
         .overlay .whimsical-line {
-            width: 90%;
-            height: 10px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 10"><path d="M0 5 Q 50 0 100 5 T 200 5" stroke="%23fff9c4" stroke-width="3" fill="none"/></svg>') center/cover no-repeat;
+            width: 80%;
+            height: 5px;
+            background: #ffd1dc;
             margin: 20px auto;
         }
 
@@ -67,14 +81,13 @@
         }
 
         .left {
-            background: #f7f7f7;
-            background: linear-gradient(45deg, #f7f7f7 25%, #e6f5d0 25%, #e6f5d0 50%, #f7f7f7 50%, #f7f7f7 75%, #e6f5d0 75%, #e6f5d0) 50%, #f7f7f7;
+            background: #FEF4E8;
+            color: #333;
         }
 
         .right {
-            background: #2a2a2a;
-            background: linear-gradient(45deg, #2a2a2a 25%, #e6f5d0 25%, #e6f5d0 50%, #2a2a2a 50%, #2a2a2a 75%, #e6f5d0 75%, #e6f5d0) 50%, #2a2a2a;
-            color: white;
+            background: #959D8D;
+            color: #fff;
         }
 
         .left-content,
@@ -90,18 +103,19 @@
 
         .right-content {
             max-width: 600px;
-            margin-top: 150px;
+            margin-top: 100px;
         }
 
-        .right h1 {
+        .right h1, .left h1 {
             font-size: 2.5em;
             margin: 0;
             text-shadow: 1px 1px 5px black;
+            color: #fff;
         }
 
         .right p {
             font-size: 1.2em;
-            color: #aaaaaa;
+            color: #fef4e8;
         }
 
         .photo {
@@ -138,7 +152,7 @@
 
         .photo-text-white {
             font-size: 0.8em;
-            color: white;
+            color: #fff;
             text-align: center;
             margin-bottom: 5px;
         }
@@ -148,13 +162,7 @@
         }
 
         .blend {
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 20%;
-            background: linear-gradient(to right, #f7f7f7, #2a2a2a);
-            z-index: 0;
+            display: none;
         }
 
         .middle-button {
@@ -162,12 +170,12 @@
             top: 55%;
             left: 50%;
             transform: translate(-50%, -50%);
-            padding: 10px 20px;
-            font-size: 1em;
+            padding: 15px 30px;
+            font-size: 1.2em;
             background: #ffd1dc;
             color: #2a2a2a;
             border: none;
-            border-radius: 15px;
+            border-radius: 8px;
             cursor: pointer;
             z-index: 1;
             transition: background 0.3s, box-shadow 0.3s;
@@ -176,32 +184,18 @@
         }
 
         .middle-button:hover {
-            background: linear-gradient(45deg, #ffd1dc, #e6f5d0);
+            background: #ff9aa2;
             color: white;
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
         .left::before,
         .right::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background-image: url('left-splotches.png'), url('right-splotches.png');
-            background-size: 300px 300px;
-            background-repeat: no-repeat;
-            opacity: 0.2;
-            z-index: 0;
+            content: none;
         }
 
-        .left::before {
-            background-position: left top, right bottom;
-        }
-
-        .right::before {
-            background-position: right top, left bottom;
+        .highlight {
+            color: #959D8D;
         }
     </style>
 </head>
@@ -216,9 +210,9 @@
         <div class="left">
             <div class="left-content">
                 <h1>Credible Experienced Leadership</h1>
-                <p>
-  Unstoppable force, meet immovable object. Whitney Bartlette has been setting Instagram on FIRE, amassing nearly 800,000 followers in less than six months and accumulating hundreds of students with their own success stories through her course <a href="https://whitney-bartlette.mykajabi.com/viral-by-design" target="_blank">Viral by Design</a>. "I was constantly getting asked about solutions for people that just wanted help running their accounts. My hope is that we can build a network capable of filling the massive need for assistant and management services."
-</p>
+                <p class="highlight">
+                    Unstoppable force, meet immovable object. Whitney Bartlette has been setting Instagram on FIRE, amassing nearly 800,000 followers in less than six months and accumulating hundreds of students with their own success stories through her course <a href="https://whitney-bartlette.mykajabi.com/viral-by-design" target="_blank">Viral by Design</a>. "I was constantly getting asked about solutions for people that just wanted help running their accounts. My hope is that we can build a network capable of filling the massive need for assistant and management services."
+                </p>
                 <a href="https://www.instagram.com/whitneybartlette.social/" target="_blank">
                     <div class="photo">
                         <img src="whit closer.jpeg" alt="Course Image">
@@ -230,7 +224,6 @@
                 </div>
             </div>
         </div>
-        <div class="blend"></div>
         <div class="right">
             <div class="right-content">
                 <div class="photo-text-white">
@@ -242,7 +235,7 @@
                         <img src="Black close.png" alt="Profile Photo">
                     </div>
                 </a>
-                <h1>Sucsess Driven Agents and Assistants</h1>
+                <h1>Success Driven Agents and Assistants</h1>
                 <p>Rachel has worked with Whitney along with 50-plus online and brick-and-mortar businesses, tasked with overseeing profitability and marketing impact. "The easiest path to personal growth is through helping others grow. I couldn't think of a more fulfilling business to be a part of."</p>
             </div>
         </div>
