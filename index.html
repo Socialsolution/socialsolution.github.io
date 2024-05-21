@@ -12,29 +12,39 @@
             display: flex;
             height: 100vh;
             font-family: 'Roboto', sans-serif;
-            position: relative;
+            background: linear-gradient(135deg, #FEF4E8, #959D8D);
+            color: #333;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
         }
 
         .overlay {
-            position: absolute;
-            top: 60px;
-            left: 50%;
-            transform: translateX(-50%);
             text-align: center;
-            z-index: 2;
             color: #333;
+            margin-bottom: 20px;
         }
 
         .overlay h1 {
             margin: 0;
-            font-size: 3.5em;
+            font-size: 4em;
             color: #333;
             text-shadow: 1px 1px 5px #ffd1dc;
             font-family: 'Playfair Display', serif;
             letter-spacing: 1px;
             position: relative;
-            z-index: 1;
-            display: inline-block;
         }
 
         .overlay h1::before {
@@ -43,7 +53,7 @@
             top: 50%;
             left: 50%;
             width: 120%;
-            height: 20px;
+            height: 10px;
             background: white;
             transform: translate(-50%, -50%);
             z-index: -1;
@@ -56,66 +66,41 @@
             font-style: italic;
         }
 
-        .overlay .whimsical-line {
-            width: 80%;
-            height: 5px;
-            background: #ffd1dc;
-            margin: 20px auto;
-        }
-
         .content {
             display: flex;
             width: 100%;
-            height: 100%;
         }
 
         .left,
         .right {
             width: 50%;
-            overflow: auto;
-            position: relative;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .left {
-            background: #FEF4E8;
+            background: #959D8D;
             color: #333;
         }
 
         .right {
-            background: #959D8D;
+            background: #FEF4E8;
             color: #fff;
         }
 
-        .left-content,
-        .right-content {
-            text-align: center;
-            z-index: 1;
-        }
-
-        .left-content {
-            max-width: 600px;
-            margin-top: 50px;
-        }
-
-        .right-content {
-            max-width: 600px;
-            margin-top: 100px;
-        }
-
-        .right h1, .left h1 {
+        .left h1,
+        .right h1 {
             font-size: 2.5em;
-            margin: 0;
+            margin: 20px 0;
             text-shadow: 1px 1px 5px black;
-            color: #fff;
         }
 
+        .left p,
         .right p {
             font-size: 1.2em;
-            color: #fef4e8;
+            line-height: 1.6;
         }
 
         .photo {
@@ -139,26 +124,24 @@
             transform: scale(1.05);
         }
 
-        .photo-text {
+        .photo-text,
+        .photo-text-white {
             font-size: 0.8em;
-            color: #333;
             text-align: center;
             margin-top: 5px;
         }
 
-        .photo-text span {
+        .photo-text span,
+        .photo-text-white span {
             display: block;
+        }
+
+        .photo-text {
+            color: #fff;
         }
 
         .photo-text-white {
-            font-size: 0.8em;
-            color: #fff;
-            text-align: center;
-            margin-bottom: 5px;
-        }
-
-        .photo-text-white span {
-            display: block;
+            color: #333;
         }
 
         .blend {
@@ -166,10 +149,7 @@
         }
 
         .middle-button {
-            position: absolute;
-            top: 55%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            margin-top: 20px;
             padding: 15px 30px;
             font-size: 1.2em;
             background: #ffd1dc;
@@ -177,7 +157,6 @@
             border: none;
             border-radius: 8px;
             cursor: pointer;
-            z-index: 1;
             transition: background 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             font-family: 'Montserrat', sans-serif;
@@ -189,60 +168,67 @@
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
         }
 
-        .left::before,
-        .right::before {
-            content: none;
+        .highlight {
+            color: #FEF4E8;
         }
 
-        .highlight {
-            color: #959D8D;
+        .highlight-white {
+            color: #fff;
+        }
+
+        .highlight-black {
+            color: #000;
         }
     </style>
 </head>
 
 <body>
-    <div class="overlay">
-        <h1>Social Solutions</h1>
-        <p>Social success comes with social problems. We have the solutions.</p>
-        <div class="whimsical-line"></div>
-    </div>
-    <div class="content">
-        <div class="left">
-            <div class="left-content">
-                <h1>Credible Experienced Leadership</h1>
-                <p class="highlight">
-                    Unstoppable force, meet immovable object. Whitney Bartlette has been setting Instagram on FIRE, amassing nearly 800,000 followers in less than six months and accumulating hundreds of students with their own success stories through her course <a href="https://whitney-bartlette.mykajabi.com/viral-by-design" target="_blank">Viral by Design</a>. "I was constantly getting asked about solutions for people that just wanted help running their accounts. My hope is that we can build a network capable of filling the massive need for assistant and management services."
-                </p>
-                <a href="https://www.instagram.com/whitneybartlette.social/" target="_blank">
-                    <div class="photo">
-                        <img src="whit closer.jpeg" alt="Course Image">
-                    </div>
-                </a>
-                <div class="photo-text">
-                    <span>Whitneybartlette.social</span>
-                    <span>Co-Founder/ Creative Director</span>
-                </div>
-            </div>
+    <div class="container">
+        <div class="overlay">
+            <h1>Social Solutions</h1>
+            <p>Social success comes with social problems. We have the solutions.</p>
         </div>
-        <div class="right">
-            <div class="right-content">
-                <div class="photo-text-white">
-                    <span>Rachel Dobyns</span>
-                    <span>Co-Founder/ Agent Resource Director</span>
-                </div>
+        <div class="content">
+            <div class="left">
+                <h1 class="highlight">Success Driven Agents and Assistants</h1>
+                <p class="highlight-white">Rachel has worked with Whitney along with 50-plus online and brick-and-mortar businesses, tasked with overseeing profitability and marketing impact. "The easiest path to personal growth is through helping others grow. I couldn't think
+                    of a more fulfilling business to be a part of."</p>
                 <a href="https://www.instagram.com/itsracheldobyns/" target="_blank">
                     <div class="photo">
                         <img src="Black close.png" alt="Profile Photo">
                     </div>
                 </a>
-                <h1>Success Driven Agents and Assistants</h1>
-                <p>Rachel has worked with Whitney along with 50-plus online and brick-and-mortar businesses, tasked with overseeing profitability and marketing impact. "The easiest path to personal growth is through helping others grow. I couldn't think of a more fulfilling business to be a part of."</p>
+                <div class="photo-text">
+                    <span>Rachel Dobyns</span>
+                    <span>Co-Founder/ Agent Resource Director</span>
+                </div>
+            </div>
+            <div class="right">
+                <div class="photo-text-white highlight-black">
+                    <span>Whitneybartlette.social</span>
+                    <span>Co-Founder/ Creative Director</span>
+                </div>
+                <a href="https://www.instagram.com/whitneybartlette.social/" target="_blank">
+                    <div class="photo">
+                        <img src="whit closer.jpeg" alt="Course Image">
+                    </div>
+                </a>
+                <h1 style="color: #959D8D;">Credible Experienced Leadership</h1>
+                <p class="highlight" style="color: #959D8D;">
+                    Unstoppable force, meet immovable object. Whitney Bartlette has been setting Instagram on FIRE, amassing nearly 800,000 followers in less than six months and accumulating hundreds of students with their own success stories through her course
+                    <a
+                        href="https://whitney-bartlette.mykajabi.com/viral-by-design" target="_blank" class="highlight-black">Viral by Design</a>. "I was constantly getting asked about solutions for people that just wanted help running their accounts. My hope is that we can build a network capable of filling the massive need for assistant and management services."
+                </p>
             </div>
         </div>
         <a href="https://socialsolution.github.io/finder/" target="_blank">
             <button class="middle-button">Solutions are a click away</button>
         </a>
     </div>
+</body>
+
+</html>
+
 </body>
 
 </html>
